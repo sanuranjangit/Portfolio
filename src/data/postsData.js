@@ -3,82 +3,95 @@ export const posts = [
     id: 'post-1',
     iconType: 'bolt',
     category: 'PERFORMANCE',
-    title: 'Optimized API response time by 40%',
+    title: 'Improved search performance by 50%',
     summary:
-      'Cut p95 latency on the orders endpoint from 820ms → 490ms by batching N+1 queries and adding a Redis layer.',
-    timeAgo: '2d ago',
-    impact: '−330ms p95 on hot path',
-    tags: ['Redis', 'PostgreSQL', 'Node'],
-    problem: 'Order reads fanned out into dozens of SQL round-trips per request under peak traffic.',
+      'Boosted product search speed by 50% using optimized state management, memoization, and reduced re-renders in React.',
+    timeAgo: 'Recent',
+    impact: '50% faster search',
+    tags: ['React', 'Redux', 'Performance'],
+    problem:
+      'Search experience was sluggish due to unnecessary component re-renders and inefficient state updates.',
     solution:
-      'Introduced dataloader-style batching, partial materialized aggregates in Redis with TTL coherence, and stricter pagination defaults.',
-    impactDetail: 'Median checkout read path dropped materially; infra cost per order plateaus despite 2× traffic skew.',
+      'Applied memoization, lazy loading, and optimized Redux state updates to minimize re-renders and improve responsiveness.',
+    impactDetail:
+      'Users experienced faster product discovery, contributing to improved engagement and smoother UX.',
     codeSnippet:
-      'export const loaders = {\n  order: batch(async (ids) => db.orders.in(idList(ids))),\n  lineItemsForOrder: batch(async (oids) =>\n    chunkMap(oids, (batch) => db.lineItems.byOrder(batch))\n  ),\n};',
-    devNote: 'Ran load tests via k6; regression guard in CI on p95 thresholds.',
+      'const memoizedResults = useMemo(() => filterProducts(products, query), [products, query]);',
+    devNote:
+      'Used React DevTools profiler to identify bottlenecks and validate improvements.',
     displayLine:
-      '[PERFORMANCE] Cut p95 latency on the orders endpoint from 820ms → 490ms by batching N+1 queries and adding a Redis layer.',
+      '[PERFORMANCE] Improved product search speed by 50% through optimized React rendering and state management.',
   },
+
   {
     id: 'post-2',
     iconType: 'plug',
-    category: 'INTEGRATION',
-    title: 'Unified OAuth for B2B partners',
+    category: 'PRODUCT',
+    title: 'Achieved 82% vendor conversion in 3 months',
     summary:
-      'RFC-compliant token exchange + scoped webhooks trimmed onboarding from 14 days → 6 while improving audit coverage.',
-    timeAgo: '1w ago',
-    impact: 'Onboarding SLA −43%',
-    tags: ['OAuth2', 'Webhooks', 'Security'],
-    problem: 'Each partner demanded bespoke auth flows and callback URLs; rotations were manual and brittle.',
+      'Re-engineered My Easy Monogram platform with a real-time 2D design studio, driving massive vendor onboarding success.',
+    timeAgo: '1y ago',
+    impact: '82% vendor conversion',
+    tags: ['React', 'Node.js', 'Canvas'],
+    problem:
+      'Vendors struggled to visualize custom products, leading to low conversion and drop-offs.',
     solution:
-      'Added dynamic client registration guarded by tiered approvals, JWKS-backed signing, and HMAC webhook receipts with retries.',
+      'Built an interactive 2D canvas-based design studio with real-time previews and seamless backend integration.',
     impactDetail:
-      'Support tickets referencing auth dipped 38% QoQ; security review passed without major remediations.',
+      'Onboarded 1000+ vendors in 3 months with significantly higher engagement and satisfaction.',
     codeSnippet:
-      'app.post("/token", ratelimit, async (req, res) => {\n  const grant = await tokenService.issue(req.body, { audience: ALLOWED_AUD });\n  res.json({ access_token: grant.token, expires_in: grant.ttl });\n});',
-    devNote: 'Partner-facing Postman collections versioned beside OpenAPI artifact.',
+      'canvas.on("object:modified", () => updatePreview(canvas.toJSON()));',
+    devNote:
+      'Focused heavily on UX responsiveness and real-time feedback loops.',
     displayLine:
-      '[INTEGRATION] RFC-compliant token exchange + scoped webhooks streamlined partner onboarding dramatically.',
+      '[PRODUCT] Built real-time customization studio driving 82% vendor conversion in 3 months.',
   },
+
   {
     id: 'post-3',
     iconType: 'wrench',
     category: 'DX',
-    title: 'Local dev parity for event pipeline',
+    title: 'Led React 19 & Next.js upgrade',
     summary:
-      'Docker Compose stack mirrors prod topics and retries; onboarding doc shrank from 42 steps → 11 with health dashboard.',
-    timeAgo: '2w ago',
-    impact: 'Mean time-to-first-run 18 min',
-    tags: ['Docker', 'Kafka', 'DX'],
-    problem: 'New engineers hit divergent payloads and zombie consumers when developing against mocks.',
+      'Migrated legacy codebase to modern React patterns and upgraded Next.js, improving performance and maintainability.',
+    timeAgo: 'Recent',
+    impact: 'Cleaner architecture',
+    tags: ['Next.js', 'React', 'TypeScript'],
+    problem:
+      'Legacy components and outdated dependencies caused build issues and performance bottlenecks.',
     solution:
-      'Packaged infra as compose profiles plus seed fixtures; added `dev doctor` CLI to surface mismatched schema hashes.',
-    impactDetail: 'Median PR cycle for pipeline changes shortened; fewer flaky CI incidents from stale local state.',
+      'Refactored components, adopted modern React patterns, and resolved runtime/build issues during upgrade.',
+    impactDetail:
+      'Improved developer productivity, reduced bugs, and ensured long-term scalability.',
     codeSnippet:
-      'tasks:\n  up: docker compose --profile streaming up\n  topics: kafka-topics reconcile --manifest topics.yaml',
-    devNote: 'Integrated with Tilt optional for larger teams.',
+      'useEffect(() => {\n  fetchData();\n}, []);',
+    devNote:
+      'Handled production migration carefully with staged rollouts and testing.',
     displayLine:
-      '[DX] Docker Compose parity + health dashboard cut local setup friction for the event pipeline squad.',
+      '[DX] Modernized codebase with React 19 & Next.js upgrade for better performance and scalability.',
   },
+
   {
     id: 'post-4',
     iconType: 'database',
-    category: 'ARCHITECTURE',
-    title: 'Sharded ingestion for telemetry spikes',
+    category: 'UX',
+    title: 'Boosted engagement by 25% with UI improvements',
     summary:
-      'Partitioned ingest workers per tenant cohort with backlog-aware autoscaled consumers—no noisy-neighbor regressions.',
-    timeAgo: '3w ago',
-    impact: '0 loss events @ 18× spike',
-    tags: ['Kafka', 'SRE', 'AWS'],
-    problem: 'Shared consumer group caused backlog oscillation whenever one tenant spiked ingestion volume.',
+      'Built responsive, pixel-perfect UIs from Figma designs, improving engagement and conversion rates.',
+    timeAgo: '2y ago',
+    impact: '+25% engagement',
+    tags: ['React', 'UI/UX', 'Figma'],
+    problem:
+      'Inconsistent UI and poor responsiveness were affecting user engagement and conversions.',
     solution:
-      'Introduced hashed routing to dedicated shards with soft quotas; lag metrics drive autoscale per cohort.',
+      'Developed responsive components, improved layout consistency, and optimized rendering performance.',
     impactDetail:
-      'Blackout drills showed sustained healthy lag; alerting noise cut by consolidating on SLO-based burn rates.',
+      'Achieved 25% engagement boost, 15% conversion lift, and faster load times.',
     codeSnippet:
-      'const shard = hashTenant(event.tenantId) % cohorts;\npublish(`ingest.${shard}`, event);',
-    devNote: 'Backpressure signaled via envoy-style retry budgets downstream.',
+      '<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">...</div>',
+    devNote:
+      'Worked closely with designers to ensure pixel-perfect implementation.',
     displayLine:
-      '[ARCHITECTURE] Tenant-aware ingestion shards stabilized queues during telemetry surges.',
+      '[UX] Delivered responsive UI improvements resulting in 25% engagement growth.',
   },
 ];

@@ -3,17 +3,6 @@ import ActivityItem from './ActivityItem';
 import Card from '../common/Card';
 import { posts } from '../../data/postsData';
 
-function LiveFeedBadge() {
-  return (
-    <div className="flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800 shadow-sm dark:border-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200">
-      <span className="relative flex h-2 w-2">
-        <span className="absolute inline-flex h-full w-full animate-pulse rounded-full bg-emerald-400 opacity-75" />
-        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-      </span>
-      live feed
-    </div>
-  );
-}
 
 function BoltIcon() {
   return (
