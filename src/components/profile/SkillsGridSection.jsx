@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Card from '../common/Card';
 import { skillsGrid } from '../../data/skillsGridData';
+
+const INITIAL_VISIBLE = 8;
 
 function BookmarkIcon() {
   return (
@@ -11,6 +14,20 @@ function BookmarkIcon() {
         strokeLinejoin="round"
         d="M6 4h12v17.5l-4.5-3.25L12 19l-1.5-1.25L6 21.5V4z"
       />
+    </svg>
+  );
+}
+
+function ChevronIcon({ expanded }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      className={`h-4 w-4 transition-transform ${expanded ? 'rotate-180' : ''}`}
+      aria-hidden
+    >
+      <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
     </svg>
   );
 }
@@ -45,6 +62,10 @@ function SkillGridCard({ skill }) {
 }
 
 export default function SkillsGridSection({ developerMode = false, id = 'skills' }) {
+  const [expanded, setExpanded] = useState(false);
+  const hasMore = skillsGrid.length > INITIAL_VISIBLE;
+  const visibleSkills = expanded ? skillsGrid : skillsGrid.slice(0, INITIAL_VISIBLE);
+
   return (
     <section id={id} className="scroll-mt-24">
       <Card hover={false} padding="p-6 sm:p-7">
@@ -54,9 +75,23 @@ export default function SkillsGridSection({ developerMode = false, id = 'skills'
           icon={<BookmarkIcon />}
           developerMode={developerMode}
           devName="SkillsGridSection"
+          trailing={
+            hasMore && (
+              <button
+                type="button"
+                onClick={() => setExpanded((v) => !v)}
+                aria-expanded={expanded}
+                aria-controls="skills-grid"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+              >
+                {expanded ? 'Show less' : `Show all (${skillsGrid.length})`}
+                <ChevronIcon expanded={expanded} />
+              </button>
+            )
+          }
         />
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {skillsGrid.map((skill) => (
+        <div id="skills-grid" className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {visibleSkills.map((skill) => (
             <SkillGridCard key={skill.id} skill={skill} />
           ))}
         </div>

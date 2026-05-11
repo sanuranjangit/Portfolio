@@ -1,67 +1,108 @@
 export const projects = [
   {
-    id: 'proj-relay',
-    slug: 'relay-webhooks',
-    title: 'Relay — Webhook Delivery Platform',
+    id: 'proj-monogram',
+    slug: 'my-easy-monogram',
+    title: 'My Easy Monogram — Custom Product Platform',
     tagline:
-      'Hardened delivery engine with backoff, signing, replay, and observable SLIs for product teams integrating at scale.',
+      'Interactive product customization platform with real-time previews driving massive vendor onboarding.',
     thumbnail: '',
-    tech: ['TypeScript', 'Node.js', 'Redis'],
-    demoUrl: '#',
-    githubUrl: 'https://github.com',
-    highlights: ['At-least-once with bounded retries', 'Tenant-scoped quotas & egress guardrails'],
+    tech: ['React', 'Node.js', 'Canvas', 'Redux'],
+    demoUrl: 'https://myeasymonogram.com/',
+    githubUrl: null,
+    highlights: [
+      '82% vendor conversion in 3 months',
+      'Real-time 2D customization studio',
+    ],
     overview:
-      'Relay is an internal/external-facing webhook dispatcher that abstracts destination variance while keeping operators honest about backlog and latency.',
+      'A scalable product customization platform enabling vendors to design and preview personalized products in real time.',
     architecture:
-      'Outbox-pattern writers push to partitioned topics; orchestrator workers schedule attempts with jittered backoff; receipts stored in Postgres with correlation IDs bridging support tooling.',
+      'React frontend with canvas-based rendering, backed by Node.js APIs handling product configurations and persistence.',
     challenges:
-      'Mixed consumer quality (timeouts, flaky SSL) demanded adaptive policies without starving well-behaved destinations.',
+      'Ensuring smooth real-time rendering and state synchronization for complex product configurations.',
     decisions:
-      'Chose deterministic replay blobs over naive full payload duplicates; exposed dead-letter rationale to developers via surfaced error classes.',
-    relatedSkillSlugs: ['typescript', 'node', 'redis'],
+      'Used optimized state management and canvas rendering techniques to deliver instant feedback without performance lag.',
+    relatedSkillSlugs: ['react', 'node', 'redux'],
   },
+
   {
-    id: 'proj-ledger-ui',
-    slug: 'ledger-console',
-    title: 'Ledger Console',
-    tagline: 'Operational UI for payouts exceptions, approvals, and manual reconciliations with full audit lineage.',
+    id: 'proj-breathing-ai',
+    slug: 'breathing-ai-ux',
+    title: 'Breathing AI — UX Redesign',
+    tagline:
+      'End-to-end UX revamp improving usability, engagement, and overall user satisfaction.',
     thumbnail: '',
-    tech: ['React', 'TanStack Router', 'Vite'],
-    demoUrl: '#',
-    githubUrl: 'https://github.com/',
-    highlights: ['Role-based approval flows', 'Diffable reconciliation exports'],
+    tech: ['React', 'UX', 'Design Systems'],
+    demoUrl: 'https://www.breathing.ai/',
+    githubUrl: null,
+    highlights: [
+      '60% improvement in user feedback',
+      'Mentored 3 junior developers',
+    ],
     overview:
-      'Dense desk-friendly console for Finance + Support to unblock stuck payouts without hopping across five tools.',
+      'Redesigned the product experience focusing on usability, accessibility, and visual consistency.',
     architecture:
-      'Read models fed by event-sourced lineage; mutations go through audited command endpoints with optimistic concurrency.',
+      'Component-driven React architecture with reusable UI patterns and improved state handling.',
     challenges:
-      'Balancing completeness vs speed—heavy tables needed virtualization plus column-level masking.',
+      'Aligning business requirements with user expectations while maintaining design consistency.',
     decisions:
-      'Adopted headless TanStack primitives for resilient data grids versus bespoke grid code.',
-    relatedSkillSlugs: ['react', 'typescript'],
+      'Introduced reusable design components and improved UX flows based on user feedback and testing.',
+    relatedSkillSlugs: ['react', 'ux'],
   },
+
   {
-    id: 'proj-guardrail',
-    slug: 'api-guardrail',
-    title: 'API Guardrail',
-    tagline: 'Edge-facing rate limits, schema validation telemetry, and contract tests baked into CI.',
+    id: 'proj-inventory',
+    slug: 'shopify-inventory-alert',
+    title: 'Shopify Inventory Alert System',
+    tagline:
+      'Real-time inventory alert system improving conversions and user retention for e-commerce.',
     thumbnail: '',
-    tech: ['Go', 'OpenAPI', 'K6'],
-    demoUrl: '#',
-    githubUrl: 'https://github.com/',
-    highlights: ['Traffic shadowing harness', 'OpenAPI drift detection'],
+    tech: ['React', 'Redux', 'Shopify Polaris'],
+    demoUrl: 'https://www.discocrate.com/',
+    githubUrl: null,
+    highlights: [
+      '25% conversion uplift',
+      '30% retention increase',
+    ],
     overview:
-      'Sidecar-lite gateway policies ensuring partner traffic stays within sane envelopes before hitting monolith hotspots.',
+      'Built an inventory alert system enabling users to track product availability and receive updates.',
     architecture:
-      'Declarative YAML routes compiled to Envoy-compatible filters plus async policy updates via CRDs.',
+      'React + Redux frontend integrated with Shopify Polaris for consistent UI and scalable state management.',
     challenges:
-      'Zero-downtime rollouts while connection pools pin old behavior.',
+      'Handling real-time updates and ensuring UI consistency across different product states.',
     decisions:
-      'Dual-published OpenAPI snapshots compared in CI blocking merges on unintentional breakage.',
-    relatedSkillSlugs: ['go', 'openapi'],
+      'Used Redux for predictable state updates and optimized rendering to ensure smooth UX.',
+    relatedSkillSlugs: ['react', 'redux'],
   },
+
+  {
+    id: 'proj-next-upgrade',
+    slug: 'pandadoc-netsuite-integration',
+    title: 'PandaDoc & NetSuite Integration Platform',
+    tagline: 'Built a scalable integration platform connecting PandaDoc and NetSuite with a modern React 19 and Next.js frontend.',
+    thumbnail: '',
+    tech: ['Next.js', 'React 19', 'TypeScript', 'Zustand'],
+    demoUrl: null,
+    githubUrl: null,
+    highlights: [
+      'Led Next.js upgrade and React 19 migration with zero downtime',
+      'Resolved build/runtime issues from breaking changes across the stack',
+      'Refactored legacy components adopting modern React 19 patterns',
+      'Managed production releases, hotfixes, and branch synchronization',
+      'Improved performance and code quality through clean architecture and reusable component design',
+    ],
+    overview:
+      'Developed and maintained a full-stack integration platform connecting PandaDoc and NetSuite, built with React 19, Next.js, TypeScript, and Zustand. Focused on scalable frontend architecture, performance optimization, and seamless cross-system data flow.',
+    architecture:
+      'Frontend built with Next.js (App Router) and React 19, using Zustand for lightweight global state management. Component structure follows a modular, reusable design pattern. Integration layer communicates with PandaDoc and NetSuite APIs via REST, coordinated through Node.js/Express backend services.',
+    challenges:
+      'Handling breaking changes introduced by React 19 and Next.js upgrades while maintaining production stability. Ensuring reliable bi-directional data sync between PandaDoc and NetSuite with differing data models.',
+    decisions:
+      'Chose Zustand over Redux for simpler, boilerplate-free state management suited to integration workflows. Adopted an incremental migration strategy — upgrading and testing module by module — to avoid regressions and ensure zero downtime in production.',
+    relatedSkillSlugs: ['react', 'nextjs', 'typescript', 'zustand', 'nodejs'],
+  }
 ];
 
 export function getProjectBySlug(slug) {
   return projects.find((p) => p.slug === slug) || null;
 }
+

@@ -36,13 +36,14 @@ function ProjectCard({ project, developerMode = false }) {
           ))}
         </div>
         <div className="mt-5 flex flex-wrap gap-2 border-t border-slate-100 pt-4 dark:border-slate-800">
-          <Button as="a" href={project.demoUrl} className="px-3 py-1.5 text-xs">
-            Live demo
-            <ExternalIcon />
-          </Button>
-          <Button as="a" href={project.githubUrl} variant="secondary" className="px-3 py-1.5 text-xs" target="_blank" rel="noreferrer">
-            GitHub
-          </Button>
+         {project.demoUrl && <Button as="a" href={project.demoUrl} className="px-3 py-1.5 text-xs">
+              Project Link
+              <ExternalIcon />
+            </Button>}
+          {project.githubUrl && <Button as="a" href={project.githubUrl} variant="secondary" className="px-3 py-1.5 text-xs" target="_blank" rel="noreferrer">
+              GitHub
+            </Button>
+          }
           <Button as={Link} to={`/projects/${project.slug}`} variant="secondary" className="px-3 py-1.5 text-xs">
             Deep dive
           </Button>

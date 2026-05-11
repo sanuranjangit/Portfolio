@@ -1,13 +1,14 @@
+import avatarImg from '../assets/avatar.jpg';
+
 export const profile = {
   name: 'Anuranjan Shrivastava',
   title: 'Senior Software Engineer',
   tagline: 'Building scalable & high performance web applications',
  locationLabel: 'Hyderabad, India · Open to Relocation & Remote',
   openToWork: true,
-  avatarUrl:
-    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop',
+  avatarUrl: avatarImg,
   resumeUrl: '#resume',
-  githubUrl: 'https://github.com',
+  githubUrl: 'https://github.com/sanuranjangit',
   contactHref: 'mailto:hello@example.dev',
   bio: 'I design and ship reliable platforms where APIs, queues, and UX meet—favoring observable systems and crisp developer experience.',
   status: 'online',
@@ -23,18 +24,10 @@ export const profile = {
 export const recommendations = [
   {
     id: 'rec-1',
-    author: 'Priya Raman',
-    role: 'Engineering Manager',
-    company: 'Northwind',
+    author: 'Rushabh Dave',
+    role: 'Fullstack Developer | MERN',
+    company: 'Lucent Innovation',
     body:
-      'Arjun is the engineer I trust with our hairiest distributed-systems work—he turns ambiguity into clear trade-offs, ships with observability first, and leaves the codebase better than he found it.',
-  },
-  {
-    id: 'rec-2',
-    author: 'Marcus Lee',
-    role: 'Staff Engineer',
-    company: 'Helio Labs',
-    body:
-      'Rare combination of product sense and deep backend craft. He led our webhook reliability push end-to-end: SLOs, runbooks, and a calm on-call story our team actually believed in.',
+      'Anuranjan is highly skilled when it comes to problem solving and code optimizations. He holds a deeper understanding of Web development and modern tools. Apart from core skills he is very friendly to approach and I have always found him being supportive. I highly recommend him for his resilience, attention to details, optimization skills and supportive nature.',
   },
 ];

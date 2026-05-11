@@ -22,11 +22,11 @@ export default function ProfileHeader({ developerMode = false }) {
             <div className="relative mx-auto shrink-0 sm:mx-0">
               <img
                 src={profile.avatarUrl}
-                alt=""
-                className="h-28 w-28 rounded-2xl object-cover shadow-md ring-4 ring-white"
+                alt={profile.name}
+                className="h-28 w-28 rounded-full object-cover shadow-md ring-4 ring-white"
               />
               <span
-                className="absolute bottom-2 right-2 flex items-center gap-1 rounded-full bg-white/95 px-2 py-0.5 text-[10px] font-semibold text-slate-600 shadow-sm ring-1 ring-slate-200"
+                className="absolute -bottom-1 right-0 flex items-center gap-1 rounded-full bg-white/95 px-2 py-0.5 text-[10px] font-semibold text-slate-600 shadow-sm ring-1 ring-slate-200"
                 title="Availability"
               >
                 <span className="relative flex h-2 w-2">
