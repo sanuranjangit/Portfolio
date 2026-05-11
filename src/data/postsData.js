@@ -39,8 +39,8 @@ export const posts = [
       'Built an interactive 2D canvas-based design studio with real-time previews and seamless backend integration.',
     impactDetail:
       'Onboarded 1000+ vendors in 3 months with significantly higher engagement and satisfaction.',
-    codeSnippet:
-      'canvas.on("object:modified", () => updatePreview(canvas.toJSON()));',
+      codeSnippet:
+      'stage.on("dragend transformend", () => {\n  const json = stage.toJSON();\n  updatePreview(json);\n});',
     devNote:
       'Focused heavily on UX responsiveness and real-time feedback loops.',
     displayLine:
@@ -63,8 +63,8 @@ export const posts = [
       'Refactored components, adopted modern React patterns, and resolved runtime/build issues during upgrade.',
     impactDetail:
       'Improved developer productivity, reduced bugs, and ensured long-term scalability.',
-    codeSnippet:
-      'useEffect(() => {\n  fetchData();\n}, []);',
+      codeSnippet:
+      'const dataPromise = fetch("/api/data").then(res => res.json());\n\nfunction Component() {\n  const data = use(dataPromise);\n\n  return <div>{data.title}</div>;\n}',
     devNote:
       'Handled production migration carefully with staged rollouts and testing.',
     displayLine:
