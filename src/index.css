@@ -1,13 +1,73 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+    /* Fallback when View Transitions are not supported */
+    transition: background-color 0.45s ease, color 0.45s ease;
+  }
+  body {
+    @apply antialiased bg-slate-100 text-slate-800 dark:bg-slate-950 dark:text-slate-100;
+    transition: background-color 0.45s ease, color 0.45s ease;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Theme toggle: slide old/new root snapshots (Chromium 111+, Safari 18+, etc.) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  animation-name: theme-slide-out;
+}
+
+::view-transition-new(root) {
+  animation-name: theme-slide-in;
+}
+
+@keyframes theme-slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0.25;
+    transform: translateX(-12%);
+  }
+}
+
+@keyframes theme-slide-in {
+  from {
+    opacity: 0.25;
+    transform: translateX(12%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms !important;
+  }
+
+  html,
+  body {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer utilities {
+  .dev-outline {
+    @apply ring-2 ring-amber-400/70 ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-950;
+  }
 }
