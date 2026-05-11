@@ -1,8 +1,8 @@
 export const profile = {
-  name: 'Arjun Mehta',
-  title: 'Full Stack Developer',
-  tagline: 'Building scalable web apps & integrations',
-  locationLabel: 'Bengaluru, India · Remote-friendly',
+  name: 'Anuranjan Shrivastava',
+  title: 'Senior Software Engineer',
+  tagline: 'Building scalable & high performance web applications',
+ locationLabel: 'Hyderabad, India · Open to Relocation & Remote',
   openToWork: true,
   avatarUrl:
     'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop',
