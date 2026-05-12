@@ -57,14 +57,35 @@ export const skillsGrid = [
     name: 'React Query',
     levelLabel: 'Advanced',
     progress: 80,
-    projectTags: [],
+    projectTags: ["My Easy Monogram"],
   },
   {
     id: 'html5',
     name: 'HTML5',
     levelLabel: 'Expert',
     progress: 95,
-    projectTags: [],
+    projectTags: ['My Easy Monogram', 'Breathing AI', 'Shopify Inventory Alert'],
+  },
+  {
+    id: 'tailwind',
+    name: 'Tailwind CSS',
+    levelLabel: 'Advanced',
+    progress: 85,
+    projectTags: ["Integration Platform"],
+  },
+  {
+    id: 'restapi',
+    name: 'REST APIs',
+    levelLabel: 'Advanced',
+    progress: 85,
+    projectTags: ['My Easy Monogram', 'Breathing AI', 'Shopify Inventory Alert'],
+  },
+  {
+    id: 'git',
+    name: 'Git / GitHub / GitLab',
+    levelLabel: 'Advanced',
+    progress: 85,
+    projectTags: ['My Easy Monogram', 'Breathing AI', 'Shopify Inventory Alert', 'Integration Platform'],
   },
   {
     id: 'jest',
@@ -80,13 +101,7 @@ export const skillsGrid = [
     progress: 65,
     projectTags: [],
   },
-  {
-    id: 'tailwind',
-    name: 'Tailwind CSS',
-    levelLabel: 'Advanced',
-    progress: 85,
-    projectTags: [],
-  },
+  
   {
     id: 'express',
     name: 'Express.js',
@@ -94,13 +109,7 @@ export const skillsGrid = [
     progress: 70,
     projectTags: [],
   },
-  {
-    id: 'restapi',
-    name: 'REST APIs',
-    levelLabel: 'Advanced',
-    progress: 85,
-    projectTags: [],
-  },
+  
   {
     id: 'mongodb',
     name: 'MongoDB',
@@ -115,11 +124,5 @@ export const skillsGrid = [
     progress: 65,
     projectTags: [],
   },
-  {
-    id: 'git',
-    name: 'Git / GitHub / GitLab',
-    levelLabel: 'Advanced',
-    progress: 85,
-    projectTags: [],
-  },
+ 
 ];

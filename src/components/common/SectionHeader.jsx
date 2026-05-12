@@ -16,7 +16,7 @@ export default function SectionHeader({
     <div
       id={id}
       className={cn(
-        'mb-6 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between',
+        'mb-6 flex flex-row flex-wrap items-center justify-between gap-3',
         developerMode && devName && 'relative rounded-xl dev-outline p-3 -m-3'
       )}
     >

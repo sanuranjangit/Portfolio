@@ -1,6 +1,11 @@
+import { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Card from '../common/Card';
+import ShowAllButton from '../common/ShowAllButton';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { recommendations } from '../../data/profileData';
+
+const MOBILE_VISIBLE = 1;
 
 function QuoteIcon() {
   return (
@@ -69,7 +74,14 @@ function RecommendationCard({ rec }) {
 }
 
 export default function RecommendationSection({ developerMode = false, id = 'recommendations' }) {
+  const isMobile = useMediaQuery('(max-width: 767px)');
+  const [expanded, setExpanded] = useState(false);
+
   if (!recommendations.length) return null;
+
+  const collapse = isMobile && !expanded;
+  const hasMore = isMobile && recommendations.length > MOBILE_VISIBLE;
+  const visibleRecs = collapse ? recommendations.slice(0, MOBILE_VISIBLE) : recommendations;
 
   return (
     <section id={id} className="scroll-mt-24">
@@ -80,9 +92,19 @@ export default function RecommendationSection({ developerMode = false, id = 'rec
           icon={<QuoteIcon />}
           developerMode={developerMode}
           devName="RecommendationSection"
+          trailing={
+            hasMore && (
+              <ShowAllButton
+                expanded={expanded}
+                onToggle={() => setExpanded((v) => !v)}
+                total={recommendations.length}
+                controls="recommendations-grid"
+              />
+            )
+          }
         />
-        <div className="grid gap-[20px] grid-cols-[repeat(auto-fit,minmax(min(330px,100%),1fr))]">
-          {recommendations.map((r) => (
+        <div id="recommendations-grid" className="grid gap-[20px] grid-cols-[repeat(auto-fit,minmax(min(330px,100%),1fr))]">
+          {visibleRecs.map((r) => (
             <RecommendationCard key={r.id} rec={r} />
           ))}
         </div>

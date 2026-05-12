@@ -20,7 +20,7 @@ export const posts = [
     devNote:
       'Used React DevTools profiler to identify bottlenecks and validate improvements.',
     displayLine:
-      '[PERFORMANCE] Improved product search speed by 50% through optimized React rendering and state management.',
+      'Improved product search speed by 50% through optimized React rendering and state management.',
   },
 
   {
@@ -44,7 +44,7 @@ export const posts = [
     devNote:
       'Focused heavily on UX responsiveness and real-time feedback loops.',
     displayLine:
-      '[PRODUCT] Built real-time customization studio driving 82% vendor conversion in 3 months.',
+      'Built real-time customization studio driving 82% vendor conversion in 3 months.',
   },
 
   {
@@ -68,7 +68,7 @@ export const posts = [
     devNote:
       'Handled production migration carefully with staged rollouts and testing.',
     displayLine:
-      '[DX] Modernized codebase with React 19 & Next.js upgrade for better performance and scalability.',
+      'Modernized codebase with React 19 & Next.js upgrade for better performance and scalability.',
   },
 
   {
@@ -92,6 +92,6 @@ export const posts = [
     devNote:
       'Worked closely with designers to ensure pixel-perfect implementation.',
     displayLine:
-      '[UX] Delivered responsive UI improvements resulting in 25% engagement growth.',
+      'Delivered responsive UI improvements resulting in 25% engagement growth.',
   },
 ];

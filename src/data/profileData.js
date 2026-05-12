@@ -1,4 +1,4 @@
-import avatarImg from '../assets/avatar.jpg';
+import avatarImg from '../assets/avatar.jpeg';
 
 export const profile = {
   name: 'Anuranjan Shrivastava',
