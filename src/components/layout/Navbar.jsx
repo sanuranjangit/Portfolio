@@ -20,11 +20,11 @@ export default function Navbar({
       <div className="mx-auto flex max-w-[1248px] items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link to="/" className="flex items-center gap-2.5 font-semibold text-slate-900 dark:text-white">
           <LogoMark />
-          <span className="text-lg tracking-tight">devfolio</span>
+          <span className="text-lg tracking-tight">AS</span>
         </Link>
         <div className="flex items-center gap-4 sm:gap-5">
-          
-          <div className="flex items-center gap-3">
+          {/* Commented out for now as I don't need developer mode for first release */}
+          {/* <div className="flex items-center gap-3">
             <span className="hidden text-sm font-medium text-slate-600 dark:text-slate-300 sm:inline">Dev mode</span>
             <button
               type="button"
@@ -44,7 +44,7 @@ export default function Navbar({
                 )}
               />
             </button>
-          </div>
+          </div> */}
           <button
             type="button"
             onClick={onToggleDark}

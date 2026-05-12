@@ -2,11 +2,11 @@ export const projects = [
   {
     id: 'proj-monogram',
     slug: 'my-easy-monogram',
-    title: 'My Easy Monogram — Custom Product Platform',
+    title: 'My Easy Monogram — Customized Product Platform',
     tagline:
       'Interactive product customization platform with real-time previews driving massive vendor onboarding.',
     thumbnail: '',
-    tech: ['React', 'Node.js', 'Canvas', 'Redux'],
+    tech: ['React', 'Node.js', 'Canvas', 'Redux' , 'Konva'],
     demoUrl: 'https://myeasymonogram.com/',
     githubUrl: null,
     highlights: [
@@ -31,7 +31,7 @@ export const projects = [
     tagline:
       'End-to-end UX revamp improving usability, engagement, and overall user satisfaction.',
     thumbnail: '',
-    tech: ['React', 'UX', 'Design Systems'],
+    tech: ['React', 'UX', 'TypeScript'],
     demoUrl: 'https://www.breathing.ai/',
     githubUrl: null,
     highlights: [
@@ -43,7 +43,7 @@ export const projects = [
     architecture:
       'Component-driven React architecture with reusable UI patterns and improved state handling.',
     challenges:
-      'Aligning business requirements with user expectations while maintaining design consistency.',
+      'Aligning business requirements with user expectations while maintaining design consistency. Additionally, handled timing-sensitive interactions within a browser extension environment using browser APIs like setTimeout, ensuring accurate and smooth user experience despite background execution constraints.',
     decisions:
       'Introduced reusable design components and improved UX flows based on user feedback and testing.',
     relatedSkillSlugs: ['react', 'ux'],

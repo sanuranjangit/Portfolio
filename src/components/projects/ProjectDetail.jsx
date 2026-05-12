@@ -53,12 +53,16 @@ export default function ProjectDetail({ project, developerMode = false }) {
               ))}
             </div>
             <div className="mt-6 flex flex-wrap gap-2">
-              <Button as="a" href={project.demoUrl}>
-                Live demo
-              </Button>
-              <Button as="a" href={project.githubUrl} variant="secondary" target="_blank" rel="noreferrer">
-                GitHub
-              </Button>
+              {project.demoUrl && (
+                <Button as="a" href={project.demoUrl} target="_blank" rel="noreferrer">
+                  Project Link
+                </Button>
+              )}
+              {project.githubUrl && (
+                <Button as="a" href={project.githubUrl} variant="secondary" target="_blank" rel="noreferrer">
+                  GitHub
+                </Button>
+              )}
             </div>
           </div>
         </div>

@@ -36,7 +36,7 @@ function ProjectCard({ project, developerMode = false }) {
           ))}
         </div>
         <div className="mt-5 flex flex-wrap gap-2 border-t border-slate-100 pt-4 dark:border-slate-800">
-         {project.demoUrl && <Button as="a" href={project.demoUrl} className="px-3 py-1.5 text-xs">
+         {project.demoUrl && <Button as="a" href={project.demoUrl} target="_blank" rel="noreferrer" className="px-3 py-1.5 text-xs">
               Project Link
               <ExternalIcon />
             </Button>}

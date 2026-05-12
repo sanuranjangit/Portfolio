@@ -22,7 +22,7 @@ export default function ProjectsSection({ developerMode = false, id = 'projects'
           developerMode={developerMode}
           devName="ProjectsSection"
         />
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(min(340px,100%),1fr))]">
           {projects.map((p) => (
             <ProjectCard key={p.id} project={p} developerMode={developerMode} />
           ))}

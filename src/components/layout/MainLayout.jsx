@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { Outlet } from 'react-router-dom';
+import { useEffect, useMemo } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import { cn } from '../../utils/helpers';
@@ -10,10 +10,16 @@ export default function MainLayout({
   darkMode = false,
   onToggleDark,
 }) {
+  const { pathname, hash } = useLocation();
   const outletContext = useMemo(
     () => ({ developerMode, darkMode }),
     [developerMode, darkMode]
   );
+
+  useEffect(() => {
+    if (hash) return;
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname, hash]);
   return (
     <div
       className={cn(
@@ -28,7 +34,7 @@ export default function MainLayout({
         onToggleDark={onToggleDark}
       />
       <div className="mx-auto max-w-[1248px] px-4 py-6 sm:px-6 lg:py-8">
-        <div className="grid grid-cols-1 gap-[20px] lg:grid-cols-[minmax(0,286px)_minmax(0,1fr)] lg:items-start">
+        <div className="grid grid-cols-1 gap-[20px] md:grid-cols-[minmax(0,286px)_minmax(0,1fr)] md:items-start">
           <Sidebar developerMode={developerMode} />
           <main className="min-w-0 space-y-6">
             <Outlet context={outletContext} />

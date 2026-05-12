@@ -48,8 +48,15 @@ export default function ProfileHeader({ developerMode = false }) {
                 <Button as="a" href={profile.contactHref}>
                   Contact
                 </Button>
-                <Button as="a" href={profile.resumeUrl} variant="secondary">
-                  Résumé
+                <Button
+                  as="a"
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Open résumé in a new tab (PDF)"
+                  variant="secondary"
+                >
+                  Resume
                 </Button>
                 <Button as="a" href={profile.githubUrl} variant="secondary" target="_blank" rel="noreferrer">
                   GitHub
